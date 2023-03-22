@@ -1,0 +1,27 @@
+version: 2
+
+sources:
+    - name: airbyte_schema
+      description: Entities of a ecommerce business
+      database: airbyte_database
+      tables:
+        - name: distribution_centers
+          description: Raw distribution centers data.
+          columns:
+            - name: id
+              description: Primary key for distribution centers
+              tests:
+                - unique
+                - not_null
+        - name: events
+          description: Raw events data.
+          columns:
+            - name: session_id
+              description: Primary key for events.
+              tests:
+        - name: inventory_items
+          description: Raw line items data.
+          columns:
+            - name: id
+              description: Primary key for line items events.
+              tests:     
