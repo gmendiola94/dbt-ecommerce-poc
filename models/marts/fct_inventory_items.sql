@@ -1,18 +1,26 @@
+{{
+  config(
+    materialized = 'table',
+    )
+}}
+
+with inventory as (
+    select *
+    from {{ ref('stg_inventory_items') }}
+
+)
+
 select
     id,
     product_sku,
-    product_department,
-    cost,
+    product_distribution_center_id,
     product_id,
     sold_at,
     created_at,
-    product_brand,
-    product_distribution_center_id,
-    product_name,
     product_retail_price,
-    product_category,
+    cost,
     _airbyte_ab_id,
     _airbyte_emitted_at,
     _airbyte_normalized_at,
     _airbyte_inventory_items_hashid
-from {{ source('airbyte_schema', 'inventory_items') }}
+from inventory

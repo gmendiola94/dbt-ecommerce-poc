@@ -1,3 +1,15 @@
+{{
+  config(
+    materialized = 'table',
+    )
+}}
+
+with events as (
+    select *
+    from {{ ref('stg_events') }}
+
+)
+
 select
     id,
     session_id,
@@ -16,4 +28,4 @@ select
     _airbyte_emitted_at,
     _airbyte_normalized_at,
     _airbyte_events_hashid
-from {{ source('airbyte_schema', 'events') }}
+from events

@@ -1,0 +1,65 @@
+version: 2
+
+models:
+  - name: fct_orders
+    columns:
+      - name: id
+        tests:
+        - unique
+        - not_null
+      - name: user_id
+        tests:
+        - relationships:
+            to: ref('dim_customers')
+            field: id
+      - name: product_id
+        tests:
+        - relationships:
+            to: ref('dim_products')
+            field: id
+      - name: distribution_center_id
+        tests:
+        - relationships:
+            to: ref('dim_distribution_centers')
+            field: id
+  - name: fct_inventory_items
+    columns:
+      - name: id
+        tests:
+        - unique
+        - not_null
+      - name: product_distribution_center_id
+        tests:
+        - relationships:
+            to: ref('dim_distribution_centers')
+            field: id
+      - name: product_sku
+        tests:
+        - relationships:
+            to: ref('dim_products')
+            field: sku
+  - name: dim_customers
+    columns:
+      - name: id
+        tests:
+        - unique
+        - not_null
+  - name: dim_events
+    columns:
+      - name: id
+        tests:
+        - unique
+        - not_null
+  - name: dim_distribution_centers
+    columns:
+      - name: id
+        tests:
+        - unique
+        - not_null
+  - name: dim_products
+    columns:
+      - name: id
+        tests:
+        - unique
+        - not_null
+

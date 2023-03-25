@@ -1,12 +1,6 @@
-{{
-  config(
-    materialized = 'table',
-    )
-}}
-
 select
     id,
-    name as location,
+    name,
     latitude,
     longitude,
     _airbyte_ab_id,
