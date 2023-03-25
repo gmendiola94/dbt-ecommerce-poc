@@ -1,0 +1,16 @@
+[sqlfluff]
+dialect = ansi
+templater = jinja
+sql_file_exts = .sql,.sql.j2,.dml,.ddl
+unquoted_identifiers_policy = all
+
+[sqlfluff:indentation]
+tab_space_size = 4
+
+[sqlfluff:rules:capitalisation.identifiers]
+extended_capitalisation_policy  = lower
+
+[sqlfluff:rules:capitalisation.keywords]
+capitalisation_policy  = lower
+
+

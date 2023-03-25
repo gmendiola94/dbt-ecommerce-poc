@@ -10,9 +10,33 @@ models:
             tests: 
                 - unique
                 - not_null
-
     - name: stg_inventory_items
       description: "A starter dbt model"
       columns:
           - name: id
             description: "The primary key for this table"
+    - name: stg_events
+      description: "A starter dbt model"
+      columns:
+          - name: id
+            description: "The primary key for this table"
+    - name: stg_orders
+      description: "A starter dbt model"
+      columns:
+          - name: order_id
+            description: "The primary key for this table"            
+    - name: stg_order_items
+      description: "A starter dbt model"
+      columns:
+          - name: id
+            description: "The primary key for this table"
+    - name: stg_products
+      description: "A starter dbt model"
+      columns:
+          - name: id
+            description: "The primary key for this table"
+    - name: stg_users
+      description: "A starter dbt model"
+      columns:
+          - name: id
+            description: "The primary key for this table"    

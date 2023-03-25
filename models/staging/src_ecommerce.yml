@@ -16,12 +16,48 @@ sources:
         - name: events
           description: Raw events data.
           columns:
-            - name: session_id
+            - name: id
               description: Primary key for events.
               tests:
+                - unique
+                - not_null  
         - name: inventory_items
-          description: Raw line items data.
+          description: Raw inventory items data.
           columns:
             - name: id
-              description: Primary key for line items events.
-              tests:     
+              description: Primary key for inventory items .
+              tests: 
+                - unique
+                - not_null
+        - name: orders
+          description: Raw line orders.
+          columns:
+            - name: order_id
+              description: Primary key for orders.
+              tests: 
+                - unique
+                - not_null       
+        - name: order_items
+          description: Raw line order items.
+          columns:
+            - name: id
+              description: Primary key for order items.
+              tests: 
+                - unique
+                - not_null 
+        - name: products
+          description: Raw line products.
+          columns:
+            - name: id
+              description: Primary key for products.
+              tests: 
+                - unique
+                - not_null                                           
+        - name: users
+          description: Raw line users.
+          columns:
+            - name: id
+              description: Primary key for users.
+              tests: 
+                - unique
+                - not_null                         
