@@ -8,12 +8,13 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [Project Structure](#project-structure)
+- [Reports](#reports)
 - [Conclusion](#conclusion)
 
 
 ## Overview <a name = "overview"></a>
 
-This project showcases a proof of concept for implementing a dimensional modeling strategy for an eCommerce store called TheLook. The data for this project was loaded from BigQuery into Snowflake using Airbyte. The tables used for this exercise were `distribution_centers`, `events`, `inventory_items`, `orders`, `products`, `order_items`, and `users`. 
+This project showcases a proof of concept for implementing a dimensional modeling strategy for an eCommerce store. The data was loaded from BigQuery into Snowflake using [Airbyte](https://airbyte.com/) and later transformed with dbt (ELT). The tables used for this exercise were `distribution_centers`, `events`, `inventory_items`, `orders`, `products`, `order_items`, and `users`. 
 
 ## DAG <a name = "dag"></a>
 ![alt text](img/dbt-dag.png "Final DAG")
@@ -74,6 +75,15 @@ The project consists of the following main directories:
   - `schema.yml`: Schema definition file for tests
   - `*.sql`: SQL files defining the tests
 
+## Reports <a name = "reports"></a>
+
+After the transformation step using DBT, Power BI was used to create sales and inventory reports. Power BI allowed us to easily create interactive visualizations that gave us insights into our data. 
+
+![alt text](img/rpt-sales.png "Sales Report")
+![alt text](img/rpt-stock.png "Stock Report")
+
+[PDF File](reports/dbt-poc-reports-sample.pdf)
+
 ## Conclusion <a name = "conclusion"></a>
 
-This proof of concept demonstrates the use of DBT to transform and model data from an ecommerce store. By organizing the models into subdirectories based on business processes, it is easy to navigate and understand the data transformation pipeline. The generated documentation provides a clear understanding of the models and the data they represent.
+This proof of concept demonstrates the use of DBT to transform, model and test data from an ecommerce store. By making use of the DBT framework, it is easy to navigate and understand the data transformation pipeline. Also, the combination of Snowflake, dbt and Power BI allows to turn raw data into valuable insights to support the business operations.
