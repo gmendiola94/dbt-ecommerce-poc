@@ -1,13 +1,20 @@
 {{
   config(
-    materialized = 'table',
+    materialized = 'incremental',
+    unique_key = 'id',
+    incremental_strategy='merge'
     )
 }}
 
+-- incremental refresh set to 3 days 
 with inventory as (
-    select *
-    from {{ ref('stg_inventory_items') }}
-
+    select * from {{ ref('stg_inventory_items') }}
+    where
+        1 = 1
+        {% if is_incremental() %}
+            and created_at
+            >= dateadd(day, -2, (select max(created_at) from {{ this }}))
+        {% endif %}
 )
 
 select
@@ -19,8 +26,10 @@ select
     created_at,
     product_retail_price,
     cost,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
-    _airbyte_normalized_at,
-    _airbyte_inventory_items_hashid
+    round(product_retail_price - cost, 2) as profit,
+    round(
+        (product_retail_price - cost) / product_retail_price, 2
+    ) as product_profit_margin,
+    datediff(day, created_at, sold_at) as days_to_sale,
+    sysdate() as dbt_run_timestamp
 from inventory
