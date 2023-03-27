@@ -2,34 +2,34 @@
 
 ## Table of Contents
 
-- [Overview](#Overview)
-- [DAG](#DAG)
-- [Dataset](#Dataset)
-- [Installation](#Installation)
-- [Usage](#Usage)
-- [Project Structure](#Project_Structure)
-- [Conclusion](#Conclusion)
+- [Overview](#overview)
+- [DAG](#dag)
+- [Dataset](#dataset)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Conclusion](#conclusion)
 
 
-## Overview <a name = "Overview"></a>
+## Overview <a name = "overview"></a>
 
 This project showcases a proof of concept for implementing a dimensional modeling strategy for an eCommerce store called TheLook. The data for this project was loaded from BigQuery into Snowflake using Airbyte. The tables used for this exercise were `distribution_centers`, `events`, `inventory_items`, `orders`, `products`, `order_items`, and `users`. 
 
-## DAG <a name = "DAG"></a>
+## DAG <a name = "dag"></a>
 ![alt text](img/dbt-dag.png "Final DAG")
 
-## Dataset <a name = "Dataset"></a>
+## Dataset <a name = "dataset"></a>
 
 The dataset used for this exercise was "TheLook," which is a fictitious eCommerce clothing site developed by the Looker team and can be found among BigQuery's public datasets.
 
 
-## Installation <a name = "Installation"></a>
+## Installation <a name = "installation"></a>
 
 To use this project, you'll need to have DBT installed on your machine. Please refer to the [DBT documentation](https://docs.getdbt.com/dbt-cli/installation/) for installation instructions.
 
 You'll also need to have Snowflake credentials set up on your machine, as well as an Airbyte account to load the data into Snowflake. Please refer to the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/python-connector-install.html) and [Airbyte documentation](https://docs.airbyte.io/integrations/sources/bigquery) for more information on how to set up these components.
 
-## Usage <a name = "Usage"></a>
+## Usage <a name = "usage"></a>
 
 ### DBT Cloud
 
@@ -55,7 +55,7 @@ You'll also need to set up a Python virtual environment and install the project 
 10. Run `dbt docs generate` to generate documentation for the models.
 11. Run `dbt docs serve` to view the documentation in your browser.
 
-## Project Structure <a name = "Project_Structure"></a>
+## Project Structure <a name = "project-structure"></a>
 
 The project consists of the following main directories:
 
@@ -74,6 +74,6 @@ The project consists of the following main directories:
   - `schema.yml`: Schema definition file for tests
   - `*.sql`: SQL files defining the tests
 
-## Conclusion <a name = "Conclusion"></a>
+## Conclusion <a name = "conclusion"></a>
 
 This proof of concept demonstrates the use of DBT to transform and model data from an ecommerce store. By organizing the models into subdirectories based on business processes, it is easy to navigate and understand the data transformation pipeline. The generated documentation provides a clear understanding of the models and the data they represent.
