@@ -16,7 +16,7 @@
 This project showcases a proof of concept for implementing a dimensional modeling strategy for an eCommerce store called TheLook. The data for this project was loaded from BigQuery into Snowflake using Airbyte. The tables used for this exercise were `distribution_centers`, `events`, `inventory_items`, `orders`, `products`, `order_items`, and `users`. 
 
 ## DAG <a name = "DAG"></a>
-![alt text](img\dbt-dag.png "Final DAG")
+![alt text](img/dbt-dag.png "Final DAG")
 
 ## Dataset <a name = "Dataset"></a>
 
