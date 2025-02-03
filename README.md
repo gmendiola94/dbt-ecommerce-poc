@@ -3,6 +3,7 @@
 ## Table of Contents
 
 - [Overview](#overview)
+- [Project Architecture](#architecture)
 - [DAG](#dag)
 - [Dataset](#dataset)
 - [Installation](#installation)
@@ -15,6 +16,9 @@
 ## Overview <a name = "overview"></a>
 
 This project showcases a proof of concept for implementing a dimensional modeling strategy for an eCommerce store. The data was loaded from BigQuery into Snowflake using [Airbyte](https://airbyte.com/) and later transformed with dbt (ELT). The tables used for this exercise were `distribution_centers`, `events`, `inventory_items`, `orders`, `products`, `order_items`, and `users`. 
+
+## Project Architecture <a name = "architecture"></a>
+![alt text](img/architecture.png "Architecture")
 
 ## DAG <a name = "dag"></a>
 ![alt text](img/dbt-dag.png "Final DAG")
